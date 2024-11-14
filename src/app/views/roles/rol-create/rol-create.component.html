@@ -1,1 +1,40 @@
-<p>rol-create works!</p>
+<div class="border m-2 rounded-lg p-2">
+    <h3 class="text-3xl font-bold text-center m-1">Registrar rol</h3>
+    
+    <form [formGroup]="rolForm" (ngSubmit)="onSubmit()" class="space-y-6">
+        <div>
+            <label for="nombre" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+            <input 
+                type="text" 
+                formControlName="nombre" 
+                name="nombre" 
+                placeholder="Ingresa el nombre del rol" 
+                class="w-full border border-gray-300 focus:border-blue-500 focus:ring-blue-500 rounded-md shadow-sm px-4 py-2 transition duration-200 ease-in-out"
+            />
+        </div>
+
+        <div>
+            <label class="block text-sm font-medium text-gray-700 mb-2">Permisos</label>
+            @for (permiso of permisos; track permiso) {
+                <label class="flex items-center space-x-3">
+                    <input type="checkbox"
+                        value="{{ permiso }}"
+                        formControlName="{{ permiso }}"
+                    />
+                    <span class="text-gray-700">{{permiso}}</span>
+                </label>
+            }
+        </div>
+    
+        <div>
+            <button 
+                type="submit" 
+                [disabled]="!rolForm.valid"
+                class="w-full inline-flex items-center justify-center px-4 py-2 bg-blue-600 border border-transparent rounded-md font-semibold text-white uppercase tracking-wider hover:bg-blue-700 focus:bg-blue-700 active:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition ease-in-out duration-150 disabled:bg-gray-300">
+                Registrar usuario
+            </button>
+        </div>
+    
+    </form>
+
+</div>    
