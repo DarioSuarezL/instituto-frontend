@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { RolesListService, Rol } from './graphql/roles-list.service';
+import { RolesListService, Rol } from '../../roles/roles-list/graphql/roles-list.service';
 import { UserCreateService } from './graphql/user-create.service';
 
 @Component({
@@ -34,7 +34,6 @@ export class UserCreateComponent implements OnInit {
       }
     ).subscribe(({ data }) => {
       this.roles = data.roles;
-      console.log(this.roles);
     });
   }
 
