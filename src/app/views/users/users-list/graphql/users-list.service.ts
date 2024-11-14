@@ -7,7 +7,7 @@ export interface Usuario{
   username: string;
 }
 
-export interface Response{
+export interface UsersListResponse{
   usuarios: Usuario[];
 }
 
@@ -15,7 +15,7 @@ export interface Response{
   providedIn: 'root'
 })
 
-export class UsersListService extends Query<Response>{
+export class UsersListService extends Query<UsersListResponse>{
 
   document = gql`
   query {
